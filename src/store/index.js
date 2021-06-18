@@ -9,10 +9,14 @@ const url = 'https://dog.ceo/api/breeds/list';
 export default new Vuex.Store({
     state: {
         allBreeds: null,
+        selectedBreed: null
     },
     mutations: {
         SET_BREEDS(state, breeds) {
             state.allBreeds = breeds
+        },
+        SET_SELECTED_BREED(state, selectedBreed) {
+            state.selectedBreed = selectedBreed
         }
     },
     actions: {
@@ -22,9 +26,14 @@ export default new Vuex.Store({
                     commit('SET_BREEDS', response.data.message)
                 })
         },
+        getSelectedBreed({commit}) {
+            const selectedBreed = this.breeds.find((breed, idx) => breed[idx] === this.breedIdx)
+            commit('SET_SELECTED_BREED', selectedBreed)
+        }
     },
     modules: {},
     getters: {
         getAllBreeds: (state) => state.allBreeds,
+        getSelectedBreed: (state) => state.selectedBreed
     },
 });

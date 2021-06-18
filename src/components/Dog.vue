@@ -1,37 +1,37 @@
 <template>
- <div>Your selected breed is {{ selectedBreed }}</div>
+  <div>Your selected breed is {{ breeds[breedIdx] }}
+  <h1>{{breedIdx}}</h1></div>
+
 </template>
 
 <script>
 export default {
   name: 'Dog',
-  data () {
-    return {
-      teams: [
-        { id: '11', name: 'Team1' },
-        { id: '12', name: 'Team2' },
-        { id: '13', name: 'Team3' }
-      ],
-      selectedBreed: ''
-    }
-  },
+
   computed: {
-    dogId () {
-      return this.$route.params.dogId
+    breedIdx() {
+      return this.$route.params.breedIdx
+    },
+    breeds() {
+      return this.$store.getters.getAllBreeds
     }
-  },
-  methods: {
-    findProperBreed () {
-      this.selectedBreed = this.breeds.find(breed => breed.id === this.breedId)
-    }
-  },
-  watch: {
-    $route () {
-      this.findProperBreed()
-    }
-  },
-  created () {
-    this.findProperBreed()
   }
+
+  // methods: {
+  //   findProperBreed() {
+  //     console.log(this.$store.getters.getAllBreeds)
+  //     // this.selectedBreed = this.breeds.find((breed, idx) => breed[idx] === this.breedIdx)
+  //   }
+  // }
+  // ,
+  // watch: {
+  //   $route() {
+  //     this.findProperBreed()
+  //   }
+  // }
+  // ,
+  // created() {
+  //   this.findProperBreed()
+  // }
 }
 </script>
