@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
+import Dog from '../components/Dog'
 
 Vue.use(VueRouter);
 
@@ -25,6 +26,11 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ '../views/About.vue'),
   },
+  {
+    path: '/list/:breedID',
+    name:'Dog',
+    component: Dog
+}
 ];
 
 const router = new VueRouter({

@@ -11,7 +11,7 @@
 <script>
 export default {
   mounted() {
-    this.$store.dispatch("setAllBreeds")
+    this.$store.dispatch("getAllBreeds")
     }
 }
 </script>

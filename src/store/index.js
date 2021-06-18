@@ -1,32 +1,30 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-// import axios from 'axios';
+import axios from 'axios';
 
 Vue.use(Vuex);
 
 const url = 'https://dog.ceo/api/breeds/list';
 
 export default new Vuex.Store({
-  state: {
-    allBreeds: null,
-  },
-  mutations: {
-    // syncrous
-    // setAllBreeds(state) {
-    //   this.state.allBreeds = state;
-    // },
-  },
-  actions: {
-    //asyncronous
-    async setAllBreeds() {
-      const response = await fetch(url);
-      const breeds = await response.json();
-      this.state.allBreeds = breeds.message;
-      // state.commit('setAllBreeds', breeds.message);
+    state: {
+        allBreeds: null,
     },
-  },
-  modules: {},
-  getters: {
-    getAllBreeds: (state) => state.allBreeds,
-  },
+    mutations: {
+        SET_BREEDS(state, breeds) {
+            state.allBreeds = breeds
+        }
+    },
+    actions: {
+        async getAllBreeds({commit}) {
+            axios.get(url)
+                .then(response => {
+                    commit('SET_BREEDS', response.data.message)
+                })
+        },
+    },
+    modules: {},
+    getters: {
+        getAllBreeds: (state) => state.allBreeds,
+    },
 });
