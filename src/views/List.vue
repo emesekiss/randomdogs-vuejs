@@ -3,7 +3,7 @@
     <h1 class="text-3xl p-12 font-extrabold">This is all the breeds you've retrieved</h1>
     <ol>
     <li v-for="(breed,idx) in breeds" :key="idx" href="">
-      <a href={'http://localhost:8080/list/'+key}>{{breed}}</a>
+      <a :href="`/list/${idx}`">{{breed}}</a>
     </li>
     </ol>
   </div>
@@ -11,13 +11,13 @@
 <script>
 export default {
   name: 'List',
-  data () {
+  data() {
     return {
       breeds: null
     }
   },
-  mounted(){
-    this.breeds=this.$store.getters.getAllBreeds;
+  mounted() {
+    this.breeds = this.$store.getters.getAllBreeds;
   }
 };
 </script>

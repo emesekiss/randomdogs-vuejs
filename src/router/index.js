@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import Dog from '../components/Dog'
 
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -37,6 +38,17 @@ const router = new VueRouter({
     mode: 'history',
     base: process.env.BASE_URL,
     routes,
-});
+})
+
+router.beforeEach((to, from, next) => {
+    console.log(to)
+    let documentTitle = `${process.env.VUE_APP_TITLE} - ${to.name}`
+    if (to.params.title) {
+        documentTitle += `- ${to.params.title}`
+    }
+    document.title = documentTitle
+    next()
+})
+
 
 export default router;
