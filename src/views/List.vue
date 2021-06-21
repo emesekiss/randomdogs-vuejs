@@ -3,7 +3,7 @@
     <h1 class="text-3xl p-12 font-extrabold">This is all the breeds you've retrieved</h1>
     <ol>
     <li v-for="(breed,idx) in breeds" :key="idx" href="">
-      <a href="">{{breed}}</a>
+      <a href={'http://localhost:8080/list/'+key}>{{breed}}</a>
     </li>
     </ol>
   </div>

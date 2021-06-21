@@ -8,7 +8,7 @@ const url = 'https://dog.ceo/api/breeds/list';
 
 export default new Vuex.Store({
     state: {
-        allBreeds: null,
+        allBreeds: 'null',
         selectedBreed: null
     },
     mutations: {
