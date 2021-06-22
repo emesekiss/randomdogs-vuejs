@@ -11,9 +11,6 @@
 <script>
 export default {
   name: 'List',
-  mounted() {
-    this.$store.dispatch("getAllBreeds")
-  },
   computed: {
     breeds() {
       return this.$store.state.allBreeds;

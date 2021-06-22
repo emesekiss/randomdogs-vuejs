@@ -3,7 +3,6 @@
     <img class="logo" alt="Dog logo" src="../assets/pawprint.svg">
     <h1>Welcome to random dogs</h1>
     <img :src="dogImage" alt="Random image of a dog">
-    <!--    Maybe here we could have a random photo generator-->
   </div>
 </template>
 

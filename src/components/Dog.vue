@@ -10,14 +10,14 @@
 export default {
   name: 'Dog',
   mounted() {
-    this.$store.dispatch("getSelectedBreed")
+    this.$store.dispatch("getSelectedBreed", "hound");
   },
   computed: {
     breedIdx() {
-      return this.$route.params.breedIdx
+      return this.$route.params.breedIdx;
     },
     breeds() {
-      return this.$store.state.allBreeds
+      return this.$store.state.allBreeds;
     },
     selectedBreed() {
       return this.$store.state.selectedBreed;

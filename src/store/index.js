@@ -20,6 +20,9 @@ export default new Vuex.Store({
     SET_RANDOM_BREED(state, randomBreed) {
       state.randomBreed = randomBreed;
     },
+    SET_SELECTED_BREED(state, selectedBreed) {
+      state.selectedBreed = selectedBreed;
+    },
   },
   actions: {
     async getAllBreeds({ commit }) {
@@ -31,6 +34,13 @@ export default new Vuex.Store({
       axios.get(randomBreedUrl).then((response) => {
         commit("SET_RANDOM_BREED", response.data.message);
       });
+    },
+    async getSelectedBreed({ commit }, breed) {
+      axios
+        .get(`https://dog.ceo/api/breed/${breed}/images/random`)
+        .then((response) => {
+          commit("SET_SELECTED_BREED", response.data.message);
+        });
     },
   },
 
