@@ -3,7 +3,7 @@
     <h1 class="text-3xl p-12 font-extrabold">This is all the breeds you've retrieved</h1>
     <ol>
       <li v-for="(breed,idx) in breeds" :key="idx" href="">
-        <a :href="`/list/${idx}`">{{ breed }}</a>
+        <router-link :to="{name: 'Dog', params: { breed: breed}}">{{ breed }}</router-link>
       </li>
     </ol>
   </div>
