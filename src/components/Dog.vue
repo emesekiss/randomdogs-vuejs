@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Your selected breed is {{ breed }}</h3>
-    <img :src="selectedBreed">
+    <img :src="dogImage">
   </div>
 </template>
 
@@ -16,8 +16,8 @@ export default {
     breed() {
       return this.$route.params.breed;
     },
-    selectedBreed() {
-      return this.$store.state.selectedBreed;
+    dogImage() {
+      return this.$store.state.dogImage;
     }
   },
 }
