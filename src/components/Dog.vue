@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Your selected breed is {{ breed }}</h3>
-    <img :src="dogImage">
+    <img :src="dogImage" alt="Random image of selected breed">
   </div>
 </template>
 
